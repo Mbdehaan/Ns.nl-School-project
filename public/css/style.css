@@ -8,7 +8,8 @@
   padding: 0; }
 
 body {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px; }
 
 h1,
 h2,
@@ -36,10 +37,12 @@ h4 {
 i {
   color: #003082;
   transition: width, height, margin .1s ease-in;
-  margin-left: -40px;
-  margin-top: 7px;
+  margin-left: -30px;
   font-size: 1.5em;
   position: absolute; }
+
+a:hover i {
+  margin-left: -25px; }
 
 a {
   color: #0063d3;
@@ -87,16 +90,17 @@ header {
   .header_content .ns_logo {
     line-height: 60px; }
 
-.menu_control {
+#menu_control {
   list-style: none;
-  display: flex;
+  display: inline-flex;
   margin-left: 10px;
-  line-height: 60px; }
-  .menu_control a {
+  line-height: 60px;
+  min-width: 200px; }
+  #menu_control .menu_open {
+    display: none; }
+  #menu_control li {
     font-weight: 200;
-    padding: 0px 20px 0px 40px; }
-    .menu_control a .menu_open {
-      display: none; }
+    cursor: pointer; }
 
 .header_content-right {
   justify-content: flex-end;
@@ -133,10 +137,11 @@ nav.current {
   flex-wrap: wrap;
   padding: 2rem;
   overflow-y: scroll;
-  border-left: 1px solid #aeaeae; }
+  border-left: 1px solid #aeaeae;
+  columns: 200px 2; }
   nav.current ul {
     width: 50%;
-    padding-top: 40px;
+    padding: 40px 0 0 20px;
     display: block; }
     nav.current ul .sub_menu-titel {
       line-height: 20px;
@@ -169,10 +174,10 @@ nav.current {
   height: 70vh;
   padding: 2rem; }
   #main_menu ul li {
-    line-height: 40px; }
+    padding: 5px 0; }
     #main_menu ul li a {
       color: #003082;
-      padding: 10px 10px;
+      padding: 0 0 0 30px;
       font-weight: 200; }
       #main_menu ul li a i {
         margin-left: -45px;
@@ -234,9 +239,6 @@ footer {
       #footer_sitemap ul li a {
         padding: 0 0 0 30px;
         font-weight: 200; }
-      #footer_sitemap ul li i {
-        margin-left: -30px;
-        position: absolute; }
 
 #footer_menu {
   margin-top: 30px;
@@ -253,10 +255,3 @@ footer {
         padding-left: 50px; }
       #footer_menu ul li:hover {
         color: #003082; }
-      #footer_menu ul li i {
-        margin-left: -30px;
-        margin-top: 5px;
-        position: absolute;
-        z-index: 0; }
-        #footer_menu ul li i a {
-          margin-top: 30px; }

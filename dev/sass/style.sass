@@ -19,7 +19,7 @@ $breakpoint-tablet: 768px
 
 
 /* General styles
-*,
+*, // reset styles
 ::before,
 ::after
     box-sizing: border-box
@@ -29,6 +29,7 @@ $breakpoint-tablet: 768px
 
 body
     font-family: 'Open Sans', sans-serif
+    font-size: 16px
 
 h1,
 h2,
@@ -55,17 +56,18 @@ h4
 
 i
     color: $main-color-dark
-    transition: width, height, margin .1s ease-in 
-    margin-left: -40px
-    margin-top: 7px
+    transition: width, height, margin .1s ease-in
+    margin-left: -30px
     font-size: 1.5em
     position: absolute
+
+a:hover i
+	margin-left: -25px
 
 a
     color: $main-color
     text-decoration: none
     transition: color, margin .5s ease
-
 .fullwidth
     width: 100%
 
@@ -122,16 +124,18 @@ header
     .ns_logo
         line-height: 60px
 
-.menu_control
+#menu_control
     list-style: none
-    display: flex
+    display: inline-flex
     margin-left: 10px
     line-height: 60px
-    a
+    min-width: 200px
+    .menu_open
+        display: none
+    li
         font-weight: 200
-        padding: 0px 20px 0px 40px
-        .menu_open
-            display: none
+        cursor: pointer
+
 
 .header_content-right
     justify-content: flex-end
@@ -176,10 +180,11 @@ nav.current
     padding: 2rem
     overflow-y: scroll
     border-left: 1px solid #aeaeae
+    columns: 200px 2
 
     ul
         width: 50%
-        padding-top: 40px
+        padding: 40px 0 0 20px
         display: block
         .sub_menu-titel
             line-height: 20px
@@ -215,10 +220,10 @@ nav.current
     padding: 2rem
     ul
         li
-            line-height: 40px
+            padding: 5px 0
             a
                 color: #003082
-                padding: 10px 10px
+                padding: 0 0 0 30px
                 font-weight: 200
                 i
                     margin-left: -45px
@@ -294,9 +299,6 @@ footer
             a
                 padding: 0 0 0 30px
                 font-weight: 200
-            i
-                margin-left: -30px
-                position: absolute
 
 #footer_menu
     margin-top: 30px
@@ -313,10 +315,3 @@ footer
                 padding-left: 50px
             &:hover
                 color: $main-color-dark
-            i
-                margin-left: -30px
-                margin-top: 5px
-                position: absolute
-                z-index: 0
-                a
-                    margin-top: 30px
