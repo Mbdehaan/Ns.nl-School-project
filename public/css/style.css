@@ -1,4 +1,5 @@
-/* General styles */
+/* ----------------------------------------- General styles */
+/* -------------------------------------------------------- */
 *,
 ::before,
 ::after {
@@ -58,6 +59,8 @@ a {
   max-width: 73.25rem;
   width: 80%; }
 
+/* ------------- Notification styles */
+/* --------------------------------- */
 .notification-storing {
   box-shadow: 0 0.125rem 0 0 rgba(7, 7, 33, 0.15);
   font-weight: 200;
@@ -65,7 +68,8 @@ a {
   line-height: 45px;
   overflow: hidden; }
 
-/* Header styles */
+/* ------------------------------------------ Header styles */
+/* -------------------------------------------------------- */
 header {
   width: 100%;
   height: 60px;
@@ -84,23 +88,21 @@ header {
   position: fixed;
   z-index: 100; }
 
-.header_content {
-  width: 73.25rem;
+.header_content-left {
   display: flex; }
-  .header_content .ns_logo {
+  .header_content-left .ns_logo {
     line-height: 60px; }
-
-#menu_control {
-  list-style: none;
-  display: inline-flex;
-  margin-left: 10px;
-  line-height: 60px;
-  min-width: 200px; }
-  #menu_control .menu_open {
-    display: none; }
-  #menu_control li {
-    font-weight: 200;
-    cursor: pointer; }
+  .header_content-left #menu_control {
+    list-style: none;
+    display: inline-flex;
+    margin-left: 10px;
+    margin-top: 20px; }
+    .header_content-left #menu_control .menu_open {
+      display: none; }
+    .header_content-left #menu_control li {
+      font-weight: 200;
+      cursor: pointer;
+      padding-left: 40px; }
 
 .header_content-right {
   justify-content: flex-end;
@@ -115,42 +117,89 @@ header {
     .header_content-right li a {
       padding-left: 35px;
       color: #003082; }
+      .header_content-right li a i {
+        margin-top: 18px; }
 
-/* Navigation styles */
+@media (max-width: 650px) {
+  .header_content-right li {
+    margin: 0;
+    width: 50px; }
+    .header_content-right li a {
+      color: #fff; } }
+
+/* -------------------------------------- Navigation styles */
+/* -------------------------------------------------------- */
 .navigation {
   margin-top: 20px;
+  width: 80%;
   position: absolute;
   max-width: 73.25rem;
-  margin-left: -70px;
+  margin-left: -50px;
   display: none; }
 
 .header_container-closed {
   display: flex; }
 
+/* ---------------- Main menu styles */
+/* --------------------------------- */
+#main_menu {
+  width: 30%;
+  height: 70vh;
+  padding-top: 2rem; }
+  #main_menu ul li {
+    padding: 5px 0; }
+    #main_menu ul li a {
+      color: #003082;
+      padding: 0 0 0 40px;
+      font-weight: 200;
+      display: block; }
+      #main_menu ul li a i {
+        margin-left: -40px; }
+    #main_menu ul li:hover i {
+      margin-left: -35px; }
+    #main_menu ul li .current {
+      font-weight: bold; }
+
+/* ------------------ Submenu styles */
+/* --------------------------------- */
 .sub_menu {
   display: none; }
 
 nav.current {
-  width: 75%;
-  height: 90vh;
+  width: 70%;
+  max-height: 90vh;
+  background: #fff;
   display: flex;
   flex-wrap: wrap;
   padding: 2rem;
   overflow-y: scroll;
   border-left: 1px solid #aeaeae;
-  columns: 200px 2; }
+  columns: 2;
+  transition: margin .2s ease; }
   nav.current ul {
     width: 50%;
-    padding: 40px 0 0 20px;
-    display: block; }
+    padding-top: 20px;
+    display: block;
+    position: relative; }
     nav.current ul .sub_menu-titel {
       line-height: 20px;
       font-weight: bold;
       font-size: 1.1em; }
+      nav.current ul .sub_menu-titel a {
+        padding: 0; }
     nav.current ul a {
       color: #003082;
       line-height: 30px;
-      padding: 0; }
+      padding: 0 0 0 25px; }
+
+@media (max-width: 650px) {
+  nav.current {
+    width: 90%;
+    margin-left: -23%; } }
+
+@media (max-width: 950px) {
+  nav.current ul {
+    width: 100%; } }
 
 .sub_menu-list {
   margin-left: auto; }
@@ -169,39 +218,30 @@ nav.current {
     .sub_menu-list .sub_menu-item::hover i {
       padding: 0 8px 0 7px; }
 
-#main_menu {
-  width: 30%;
-  height: 70vh;
-  padding: 2rem; }
-  #main_menu ul li {
-    padding: 5px 0; }
-    #main_menu ul li a {
-      color: #003082;
-      padding: 0 0 0 30px;
-      font-weight: 200; }
-      #main_menu ul li a i {
-        margin-left: -45px;
-        margin-top: 5px; }
-    #main_menu ul li:hover i {
-      margin-left: -40px; }
-    #main_menu ul li .current {
-      font-weight: bold; }
-
 #sub_menu-heading {
   width: 100%;
   display: inline-flex;
   -webkit-column-span: all;
-  column-span: all; }
+  column-span: all;
+  position: relative; }
   #sub_menu-heading a {
     font-weight: 200;
     color: #0063d3;
     line-height: 60px;
-    margin-left: 50px; }
+    padding-left: 20px;
+    margin-left: 30px; }
     #sub_menu-heading a i {
       font-size: 1em;
       margin-top: 22px; }
 
-/* Main styles */
+@media (max-width: 950px) {
+  #sub_menu-heading {
+    display: block; }
+    #sub_menu-heading a {
+      padding-left: 0; } }
+
+/* -------------------------------------------- Main styles */
+/* -------------------------------------------------------- */
 main {
   margin-top: 60px; }
   main .reisplanner {
@@ -218,7 +258,8 @@ main {
   main button {
     margin: 0 auto; }
 
-/* Footer styles */
+/* ------------------------------------------ Footer styles */
+/* -------------------------------------------------------- */
 footer {
   background: #fff;
   padding: 3rem 0;

@@ -7,18 +7,19 @@
 //  Gebruikte tech:
 //  Gulp, Sass, FileInclude & BrowserSync
 
-// General styles
 
 $max-width: 73.25rem
 $main-color: #0063d3
 $main-color-dark: #003082
 $ns-color: #ffc917
 
-$breakpoint-tablet: 768px
+$breakpoint-tablet: 950px
+$breakpoint-mobile: 650px
 
 
+/* ----------------------------------------- General styles
+/* --------------------------------------------------------
 
-/* General styles
 *, // reset styles
 ::before,
 ::after
@@ -77,6 +78,14 @@ a
     max-width: $max-width
     width: 80%
 
+
+
+
+
+/* ------------- Notification styles
+/* ---------------------------------
+
+
 .notification-storing
     box-shadow: 0 .125rem 0 0 rgba(7, 7, 33, .15)
     font-weight: 200
@@ -87,8 +96,8 @@ a
 
 
 
-/* Header styles
-
+/* ------------------------------------------ Header styles
+/* --------------------------------------------------------
 
 
 
@@ -111,91 +120,138 @@ header
     position: fixed
     z-index: 100
 
+// Left header content
+.header_content-left
+	display: flex
+	.ns_logo
+		line-height: 60px
+	// toggler for the main menu
+	#menu_control
+		list-style: none
+		display: inline-flex
+		margin-left: 10px
+		margin-top: 20px
+		.menu_open
+			display: none
+		li
+			font-weight: 200
+			cursor: pointer
+			padding-left: 40px
 
-
-
-
-
-
-
-.header_content
-    width: $max-width
-    display: flex
-    .ns_logo
-        line-height: 60px
-
-#menu_control
-    list-style: none
-    display: inline-flex
-    margin-left: 10px
-    line-height: 60px
-    min-width: 200px
-    .menu_open
-        display: none
-    li
-        font-weight: 200
-        cursor: pointer
-
-
+// Right header content
 .header_content-right
-    justify-content: flex-end
-    flex-grow: 1
-    display: flex
-    line-height: 60px
-    font-weight: 200
-    overflow: hidden
-    li
-        margin-right: 30px
-        height: 60px
-        a
-            padding-left: 35px
-            color: $main-color-dark
+	justify-content: flex-end
+	flex-grow: 1
+	display: flex
+	line-height: 60px
+	font-weight: 200
+	overflow: hidden
+	li
+		margin-right: 30px
+		height: 60px
+		a
+			padding-left: 35px
+			color: $main-color-dark
+			i
+				margin-top: 18px
+
+@media (max-width: $breakpoint-mobile)
+	.header_content-right
+		li
+			margin: 0
+			width: 50px
+			a
+				color: #fff
 
 
 
-/* Navigation styles
 
+/* -------------------------------------- Navigation styles
+/* --------------------------------------------------------
 
 
 .navigation
     margin-top: 20px
+    width: 80%
     position: absolute
     max-width: $max-width
-    margin-left: -70px
+    margin-left: -50px
     display: none
 
 .header_container-closed
     display: flex
 
 
+/* ---------------- Main menu styles
+/* ---------------------------------
+
+#main_menu
+    width: 30%
+    height: 70vh
+    padding-top: 2rem
+    ul
+        li
+            padding: 5px 0
+            a
+                color: #003082
+                padding: 0 0 0 40px
+                font-weight: 200
+                display: block
+                i
+                    margin-left: -40px
+            &:hover i
+                margin-left: -35px
+            .current
+                font-weight: bold
+
+
+
+/* ------------------ Submenu styles
+/* ---------------------------------
 
 .sub_menu
     display: none
 
-nav.current
-    width: 75%
-    height: 90vh
+nav.current // selected navigation category
+    width: 70%
+    max-height: 90vh
+    background: #fff
     display: flex
     flex-wrap: wrap
     padding: 2rem
     overflow-y: scroll
     border-left: 1px solid #aeaeae
-    columns: 200px 2
+    columns: 2
+    transition: margin .2s ease
 
     ul
         width: 50%
-        padding: 40px 0 0 20px
+        padding-top: 20px
         display: block
+        position: relative
         .sub_menu-titel
             line-height: 20px
             font-weight: bold
             font-size: 1.1em
+            a
+                padding: 0
         a
             color: #003082
             line-height: 30px
-            padding: 0
+            padding: 0 0 0 25px
 
-.sub_menu-list
+@media (max-width: $breakpoint-mobile)
+	nav.current
+		width: 90%
+		margin-left: -23%
+
+@media (max-width: $breakpoint-tablet)
+	nav.current
+		ul
+			width: 100%
+
+
+.sub_menu-list // individual links in the submenu section
     margin-left: auto
 
     .sub_menu-item
@@ -214,42 +270,35 @@ nav.current
             i
                 padding: 0 8px 0 7px
 
-#main_menu
-    width: 30%
-    height: 70vh
-    padding: 2rem
-    ul
-        li
-            padding: 5px 0
-            a
-                color: #003082
-                padding: 0 0 0 30px
-                font-weight: 200
-                i
-                    margin-left: -45px
-                    margin-top: 5px
-            &:hover i
-                margin-left: -40px
-            .current
-                font-weight: bold
-#sub_menu-heading
+
+#sub_menu-heading // title of the navigation in the sub menu
     width: 100%
     display: inline-flex
     -webkit-column-span: all
     column-span: all
+    position: relative
     a
         font-weight: 200
         color: #0063d3
         line-height: 60px
-        margin-left: 50px
+        padding-left: 20px
+        margin-left: 30px
         i
             font-size: 1em
             margin-top: 22px
 
+@media (max-width: $breakpoint-tablet)
+	#sub_menu-heading
+		display: block
+		a
+			padding-left: 0
 
 
 
-/* Main styles
+
+/* -------------------------------------------- Main styles
+/* --------------------------------------------------------
+
 
 
 
@@ -275,7 +324,10 @@ main
 
 
 
-/* Footer styles
+
+/* ------------------------------------------ Footer styles
+/* --------------------------------------------------------
+
 
 
 
@@ -299,6 +351,8 @@ footer
             a
                 padding: 0 0 0 30px
                 font-weight: 200
+
+
 
 #footer_menu
     margin-top: 30px
